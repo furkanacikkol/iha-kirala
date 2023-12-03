@@ -1,0 +1,37 @@
+{% extends "main/base.html" %}
+
+{% block content %} 
+
+{% load crispy_forms_tags %}
+
+<!--Register--> 
+<div class="container py-5">
+	<h1>Kayıt ol</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{ register_form|crispy }}                    
+		<button class="btn btn-primary" type="submit">Kayıt ol</button>
+	</form>
+	<p class="text-center">Zaten bir hesabınız mı var, <a href="/login">Giriş yap</a>.</p>
+</div>
+
+<div class="custom-messages">
+  {% if messages %}
+      {% for message in messages %}
+          <div class="alert alert-success" role="alert">
+              {{ message }}
+          </div>
+      {% endfor %}
+  {% endif %}
+</div>
+
+<script>
+  $(document).ready(function () {
+      // Mesajları 2 saniye sonra otomatik kapat
+      setTimeout(function () {
+          $('.custom-messages').fadeOut();
+      }, 2000);
+  });
+</script>
+
+{% endblock %}

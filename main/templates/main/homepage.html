@@ -1,0 +1,45 @@
+{% extends 'main/base.html' %}
+
+{% block content %}
+  {% load static %}
+
+  <!-- DataTables CSS ve JS dosyalarını ekleyin -->
+  <link rel="stylesheet" type="text/css" href="{% static 'path/to/datatables.min.css' %}">
+  <script type="text/javascript" charset="utf8" src="{% static 'path/to/datatables.min.js' %}"></script>
+
+  <style>
+    .background-div {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('{% static 'main/images/background.jpg' %}');
+      background-size: cover;
+      z-index: -9999;
+    }
+
+    #kiralaButton {
+        font-size: 20px; /* Butonun metin boyutunu artırmak için */
+        padding: 20px 50px; /* Butonun iç içe ve dış kenar boşluklarını artırmak için */
+    }
+  </style>
+
+  <div class="background-div"></div>
+
+  <div class="jumbotron text-center mt-4" style="background-color: #ffffff8c; color: #fff;">
+    <h1 class="display-4">İHA Kiralama Hizmeti</h1>
+    <p class="lead">Uygun fiyatlarla en son teknolojiye sahip İHA'larımız ile uçuş keyfini yaşayın.</p>
+    <hr class="my-4">
+    {% if user.is_authenticated %}
+      <!-- Giriş yapılmışsa -->
+      <p>Hayalinizdeki uçuş deneyimini keşfetmek için hemen İHA kiralayın!</p>
+      <button id="kiralaButton" class="btn btn-primary mt-2" onclick="window.location.href='/iha-rental-list'">Kirala</button>
+    {% else %}
+      <!-- Giriş yapılmamışsa -->
+      <p>Hayalinizdeki uçuş deneyimini keşfetmek için hemen kayıt olun!</p>
+      <button id="kiralaButton" class="btn btn-primary mt-2" onclick="window.location.href='/register'">Kayıt Ol</button>
+    {% endif %}
+  </div>
+
+{% endblock %}
