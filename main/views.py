@@ -1,13 +1,29 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from .forms import NewUserForm
 from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm
 from django.http import HttpResponse
 from django.utils import timezone
-from .models import IHA, Rental
 from django.contrib.auth.decorators import user_passes_test
 from django.views.decorators.http import require_POST
+from drf_spectacular.utils import extend_schema
+
+from rest_framework.decorators import api_view
+from rest_framework import viewsets
+
+from .models import IHA, Rental
+from .forms import NewUserForm
+from .serializers import IHASerializer, RentalSerializer
+
+
+
+class IHAViewSet(viewsets.ModelViewSet):
+    queryset = IHA.objects.all()
+    serializer_class = IHASerializer
+
+class RentalViewSet(viewsets.ModelViewSet):
+    queryset = Rental.objects.all()
+    serializer_class = RentalSerializer
 
 
 # Admin kontrolü için yardımcı fonksiyon
@@ -70,7 +86,7 @@ def iha_rental(request):
     iha = get_object_or_404(IHA, id=iha_id)
 
     start_datetime = timezone.now()
-    end_datetime = start_datetime + timezone.timedelta(days=1)  # 1 gün süreyle kiralama örneği
+    end_datetime = start_datetime + timezone.timedelta(days=1)
 
     user = request.user
 
@@ -147,7 +163,7 @@ def edit_iha(request, iha_id):
         iha.save()
         messages.success(request, 'İHA başarıyla güncellendi.') 
 
-        return redirect('iha_list') 
+        return redirect('iha-list') 
 
     return render(request, 'main/edit_iha.html', {'iha': iha})
 
@@ -157,7 +173,7 @@ def delete_iha(request, iha_id):
     iha = get_object_or_404(IHA, id=iha_id)
     iha.delete()
     messages.success(request, 'İHA başarıyla silindi.')
-    return redirect('iha_list')
+    return redirect('iha-list')
 
 # Kullanıcı kiralama listesi
 def user_rentals(request):

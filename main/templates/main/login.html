@@ -10,28 +10,9 @@
   <form method="POST">
     {% csrf_token %}
     {{ login_form|crispy }}
-    <button class="btn btn-primary" type="submit">Login</button>
+    <button class="btn btn-primary" type="submit">Giriş Yap</button>
   </form>
   <p class="text-center">Hesabınız yok mu? <a href="/register">Hesap oluşturun</a>.</p>
 </div>
-
-<div class="custom-messages">
-  {% if messages %}
-      {% for message in messages %}
-          <div class="alert alert-success" role="alert">
-              {{ message }}
-          </div>
-      {% endfor %}
-  {% endif %}
-</div>
-
-<script>
-  $(document).ready(function () {
-      // Mesajları 2 saniye sonra otomatik kapat
-      setTimeout(function () {
-          $('.custom-messages').fadeOut();
-      }, 2000);
-  });
-</script>
 
 {% endblock %}

@@ -1,0 +1,7 @@
+openapi: 3.0.3
+info:
+  title: IHA Kiralama API
+  version: 1.0.0
+  description: IHA Kiralama Projesi
+paths: {}
+components: {}

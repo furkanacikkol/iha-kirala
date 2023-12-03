@@ -1,12 +1,25 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from . import views
+from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
+from rest_framework.routers import DefaultRouter
+from .views import IHAViewSet, RentalViewSet
 
 app_name = "main"
+
+router = DefaultRouter()
+router.register(r'iha', IHAViewSet, basename='iha')
+router.register(r'rental', RentalViewSet, basename='rental')
 
 urlpatterns = [
     # Admin Paneli
     path('admin/', admin.site.urls, name='admin-panel'),
+
+    # Swagger UI
+    path('schema/', SpectacularAPIView.as_view(), name='schema'),
+    path('doc/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
+    path('redoc/', SpectacularSwaggerView.as_view(url_name='schema'), name='redoc'),
+    path('api/', include(router.urls)),
 
     # Ana Sayfa
     path('', views.homepage, name='homepage'),
