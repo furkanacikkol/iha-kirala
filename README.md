@@ -15,8 +15,8 @@ Aşağıdaki adımları takip ederek projeyi yerel makinenizde çalıştırabili
 1. Projeyi klonlayın:
 
     ```bash
-    git clone https://github.com/KULLANICI_ADINIZ/IHA-Kiralama-Projesi.git
-    cd IHA-Kiralama-Projesi
+    git clone https://github.com/furkanacikkol/iha-kirala.git
+    cd iha-kirala
     ```
 
 2. Docker ile projeyi ayağa kaldırın:
@@ -27,27 +27,30 @@ Aşağıdaki adımları takip ederek projeyi yerel makinenizde çalıştırabili
 
     Bu komut, gerekli bağımlılıkları yükleyecek ve Django uygulamasını başlatacaktır.
 
-3. Tarayıcıda aşağıdaki adresi ziyaret edin:
+3. Django admin paneline erişim sağlamak için superuser oluşturun:
+
+Yeni bir terminal açarak proje klasörüne gidin
+    ```
+    cd iha-kirala
+    docker-compose exec web python manage.py createsuperuser
+    Kullanıcı adı belirleyin (Boş bırakılırsa otomatik olarak 'root' olacaktır.) 
+    Email adresi (Boş bırakılabilir)
+    Şifre girin
+    Şifrenizi tekrar girin.
+    ```
+
+4. Tarayıcıda aşağıdaki adresi ziyaret edin:
 
     ```
     http://localhost:8000
     ```
 
-    Django uygulamanızı bu adres üzerinden görebilirsiniz.
+    Önceki adımda oluşturduğunuz kullanıcı adı ve şifre ile admin olarak giriş yapabilirsiniz(Admin olarak giriş yapıldığında üyelere gizli olan yönetim paneline erişebilir ve burada var olan ihaları görebilir, ekleyebilir, güncelleyebilir ve silebilirsiniz. Aynı şekilde Kiralanmış olan ihaları görebilir güncelleme veya kiralamayı iptal edebilirsiniz.)
 
-4. Django admin paneline erişim sağlamak için oluşturulan superuser bilgileri:
 
-    - Kullanıcı Adı: admin
-    - Şifre: admin123 (veya seçtiğiniz şifre)
 
 ## Kullanım
 
 Proje başlatıldıktan sonra, İHA Kiralama uygulamanızı kullanabilir ve Django admin panelini yönetebilirsiniz.
 
-## Katkıda Bulunma
 
-Eğer projeye katkıda bulunmak istiyorsanız, lütfen bir çekme isteği (pull request) göndermeden önce geliştirme ortamınızda test ettiğinizden emin olun.
-
-## Lisans
-
-Bu proje MIT lisansı ile lisanslanmıştır. Detaylı bilgi için [LICENSE.md](LICENSE.md) dosyasına göz atabilirsiniz.
