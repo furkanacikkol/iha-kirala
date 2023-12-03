@@ -62,18 +62,40 @@ Aşağıdaki adımları takip ederek projeyi yerel makinenizde çalıştırabili
 
 Proje başlatıldıktan sonra, İHA Kiralama uygulamanızı kullanabilir ve Django admin panelini yönetebilirsiniz.
 
-IHA'ları yönetmek için:
+IHA'ları yönetim ekranı:
 
 ```
 http://localhost:8000/iha-list/
 ```
-    
+
 <img src="Images/iha.png" width="500" />
+
+
+IHA kiralama ekranı:
+
+```
+http://localhost:8000/iha-rental-list/
+```
 
 <img src="Images/rental.png" width="500" />
 
 
-Kayıt Ekranı:
-<img src="Images/register.png" width="500" />
+IHA kiralama yönetim ekranı (Sadece admin erişebilir):
+
+```
+http://localhost:8000/rental-list/
+```
 <img src="Images/rental_manage.png" width="500" />
+
+Swagger UI:
+```
+http://localhost:8000/doc/
+http://localhost:8000/redoc/
+```
 <img src="Images/swagger.png" width="500" />
+
+
+Kayıt Ekranı: 
+<br>
+<br>
+<img src="Images/register.png" width="500" />
