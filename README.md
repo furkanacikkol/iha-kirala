@@ -34,6 +34,7 @@ Yeni bir terminal açarak proje klasörüne gidin
     cd iha-kirala
     docker-compose exec web python manage.py createsuperuser
     ```
+    
     ```bash
     Kullanıcı adı belirleyin (Boş bırakılırsa otomatik olarak 'root' olacaktır.) 
     Email adresi (Boş bırakılabilir)
