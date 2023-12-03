@@ -31,9 +31,10 @@ Aşağıdaki adımları takip ederek projeyi yerel makinenizde çalıştırabili
 
 Yeni bir terminal açarak proje klasörüne gidin
     ```bash
-    
     cd iha-kirala
     docker-compose exec web python manage.py createsuperuser
+    ```
+    ```bash
     Kullanıcı adı belirleyin (Boş bırakılırsa otomatik olarak 'root' olacaktır.) 
     Email adresi (Boş bırakılabilir)
     Şifre girin
@@ -44,14 +45,12 @@ Yeni bir terminal açarak proje klasörüne gidin
 
     ```
     http://localhost:8000
+
+    http://localhost:8000/admin
     ```
 
     Önceki adımda oluşturduğunuz kullanıcı adı ve şifre ile admin olarak giriş yapabilirsiniz(Admin olarak giriş yapıldığında üyelere gizli olan yönetim paneline erişebilir ve burada var olan ihaları görebilir, ekleyebilir, güncelleyebilir ve silebilirsiniz. Aynı şekilde Kiralanmış olan ihaları görebilir güncelleme veya kiralamayı iptal edebilirsiniz.)
 
-
-
 ## Kullanım
 
 Proje başlatıldıktan sonra, İHA Kiralama uygulamanızı kullanabilir ve Django admin panelini yönetebilirsiniz.
-
-
