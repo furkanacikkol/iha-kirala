@@ -30,7 +30,8 @@ Aşağıdaki adımları takip ederek projeyi yerel makinenizde çalıştırabili
 3. Django admin paneline erişim sağlamak için superuser oluşturun:
 
 Yeni bir terminal açarak proje klasörüne gidin
-    ```
+    ```bash
+    
     cd iha-kirala
     docker-compose exec web python manage.py createsuperuser
     Kullanıcı adı belirleyin (Boş bırakılırsa otomatik olarak 'root' olacaktır.) 
