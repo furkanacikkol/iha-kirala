@@ -2,6 +2,10 @@
 
 Bu proje, Django framework kullanılarak geliştirilmiş bir İHA (İnsansız Hava Aracı) kiralama uygulamasını içermektedir.
 
+<p align="center">
+<img src="Images/homepage.png" width="750" />
+</p>
+
 ## Başlangıç
 
 Aşağıdaki adımları takip ederek projeyi yerel makinenizde çalıştırabilirsiniz.
@@ -29,18 +33,20 @@ Aşağıdaki adımları takip ederek projeyi yerel makinenizde çalıştırabili
 
 3. Django admin paneline erişim sağlamak için superuser oluşturun:
 
-Yeni bir terminal açarak proje klasörüne gidin
+    Yeni bir terminal açarak proje klasörüne gidin
+
     ```bash
     cd iha-kirala
     docker-compose exec web python manage.py createsuperuser
-    ```
-    
-    ```bash
+
     Kullanıcı adı belirleyin (Boş bırakılırsa otomatik olarak 'root' olacaktır.) 
     Email adresi (Boş bırakılabilir)
     Şifre girin
-    Şifrenizi tekrar girin.
+    Şifrenizi tekrar girin
+    
     ```
+    
+   
 
 4. Tarayıcıda aşağıdaki adresi ziyaret edin:
 
@@ -55,3 +61,19 @@ Yeni bir terminal açarak proje klasörüne gidin
 ## Kullanım
 
 Proje başlatıldıktan sonra, İHA Kiralama uygulamanızı kullanabilir ve Django admin panelini yönetebilirsiniz.
+
+IHA'ları yönetmek için:
+
+```
+http://localhost:8000/iha-list/
+```
+    
+<img src="Images/iha.png" width="500" />
+
+<img src="Images/rental.png" width="500" />
+
+
+Kayıt Ekranı:
+<img src="Images/register.png" width="500" />
+<img src="Images/rental_manage.png" width="500" />
+<img src="Images/swagger.png" width="500" />
