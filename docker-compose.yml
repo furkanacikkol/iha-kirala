@@ -19,7 +19,3 @@ services:
       POSTGRES_PASSWORD: 12345
     ports:
       - "5432:5432"
-    volumes:
-      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-
-
